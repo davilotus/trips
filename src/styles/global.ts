@@ -5,20 +5,18 @@ const GlobalStyles = createGlobalStyle`
     --highlight: #47bddf;
     --background: #081217;
     --white: #eee;
-    --container: 1000px;
+    --container: 1170px;
     --small: 1.5rem;
-    --medium: 3rem;
-    --large: 5rem;
+    --medium: 2.5rem;
+    --large: 3rem;
+    --xlarge: 5rem;
   }
-
+  
   *{
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  html{ 
-    font-size: 62,5%;
   }
 
   html, body, #__next{ 
@@ -30,9 +28,20 @@ const GlobalStyles = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
 
+  .container{
+    padding: 0 15px;
+    max-width: 1170px
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  section{
+    width: 100%;
+  }
+
   p{ 
     font-size: 1rem;
-    line-height: var(--medium);
+    line-height: var(--small);
   }
 
   a{

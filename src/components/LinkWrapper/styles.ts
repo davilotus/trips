@@ -4,8 +4,8 @@ export const Wrapper = styled.div`
   position: fixed;
   z-index 1100;
   color: var(--white);
-  top: var(--medium);
-  right: var(--medium);
+  top: var(--small);
+  right: var(--small);
   cursor: pointer;
 
   svg{

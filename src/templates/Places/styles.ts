@@ -1,23 +1,39 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  padding: var(--large) var(--medium);
+  width: 100%;
 `
 
 export const Container = styled.section`
+  padding: 0 20px;
   max-width: var(--container);
-  margin: 0 auto;
+  width: 100%;
+  margin: 60px auto;
 `
 
 export const Heading = styled.h1`
   font-size: var(--large);
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    left: 0;
+    border-radius: 4px;
+    bottom: 0;
+    content: '';
+    width: 50px;
+    height: 4px;
+    background: var(--highlight);
+  }
 `
 
 export const Body = styled.div`
-  margin: 0 0 var(--large);
+  margin: 0 0 var(--medium);
 
   p {
-    margin: var(--medium);
+    margin: 0 0 var(--small);
   }
 `
 
