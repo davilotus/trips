@@ -1,0 +1,21 @@
+{
+  "name": "Trips",
+  "short_name": "Trips",
+  "icons": [
+    {
+      "src": "/img/favicon.ico",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/favicon.ico",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background-color": "#06092B",
+  "description": "Projeto para exibir as viagens que já fiz",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#06092B"
+}
