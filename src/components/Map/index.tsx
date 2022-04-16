@@ -1,5 +1,8 @@
 import { useRouter } from 'next/router'
-import { MapContainer, TileLayer, Marker } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, MapConsumer } from 'react-leaflet'
+import L from 'leaflet'
+
+import * as S from './styles'
 
 type Place = {
   id: string
@@ -33,34 +36,64 @@ const CustomTileLayer = () => {
   )
 }
 
+const markrIcon = new L.Icon({
+  iconUrl: 'img/marker-32.png',
+  iconSize: [32, 32],
+  iconAnchor: [16, 32]
+})
+
 const Map = ({ places }: MapProps) => {
   const router = useRouter()
 
   return (
-    <MapContainer
-      center={[0, 0]}
-      zoom={2}
-      style={{ height: '100vh', width: '100vw' }}
-    >
-      <CustomTileLayer />
+    <S.MapWrapper>
+      <MapContainer
+        center={[0, 0]}
+        zoom={2}
+        minZoom={2}
+        style={{ height: '100vh', width: '100vw' }}
+        maxBounds={[
+          [-180, 180],
+          [180, -180]
+        ]}
+      >
+        <MapConsumer>
+          {(map) => {
+            // MapConsumer => Get map options from context api
 
-      {places?.map(({ id, name, slug, location }) => {
-        const { latitude, longitude } = location
+            // Get crossbrowser width
+            const width =
+              window.innerWidth ||
+              document.documentElement.clientWidth ||
+              document.body.clientWidth
 
-        return (
-          <Marker
-            key={`plave-${id}`}
-            position={[latitude, longitude]}
-            title={name}
-            eventHandlers={{
-              click: () => {
-                router.push(`/place/${slug}`)
-              }
-            }}
-          />
-        )
-      })}
-    </MapContainer>
+            if (width < 768) {
+              map.setMinZoom(2)
+            }
+
+            return null
+          }}
+        </MapConsumer>
+        <CustomTileLayer />
+        {places?.map(({ id, name, slug, location }) => {
+          const { latitude, longitude } = location
+
+          return (
+            <Marker
+              key={`plave-${id}`}
+              position={[latitude, longitude]}
+              title={name}
+              icon={markrIcon}
+              eventHandlers={{
+                click: () => {
+                  router.push(`/place/${slug}`)
+                }
+              }}
+            />
+          )
+        })}
+      </MapContainer>
+    </S.MapWrapper>
   )
 }
 

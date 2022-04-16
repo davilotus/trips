@@ -11,8 +11,8 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="/img/favicon.ico" />
-        <link rel="apple-touch-icon" href="/img/favicon.ico" />
+        <link rel="shortcut icon" href="/img/marker-32.png" />
+        <link rel="apple-touch-icon" href="/img/marker-128.png" />
         <link rel="manifest" href="/manifest.json" />
         <link
           rel="stylesheet"
@@ -21,7 +21,7 @@ function App({ Component, pageProps }: AppProps) {
           crossOrigin=""
         />
 
-        <meta name="theme-color" content="#06092B" />
+        <meta name="theme-color" content="#47bddf" />
       </Head>
       <DefaultSeo {...SEO} />
       <GlobalStyles />
